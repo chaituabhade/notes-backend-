@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="bg-zinc-900 py-12">
+        <div class="w-full p-5 py-0.5 text-white flex justify-end gap-4">
+            <a href="/profile" class="bg-zinc-600 rounded-md px-3 py-2 text-sm mb-5 inline-block">back</a>
+            <a class="bg-red-500 rounded-md px-3 py-2 text-sm mb-5 inline-block" href="/logout">Logout</a>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
+                    Pricing Plans
+                </h2>
+                <p class="mt-4 text-xl text-gray-400">
+                    Simple, transparent pricing for your business needs.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+                <!-- Starter Plan -->
+                <div
+                    class="bg-zinc-850 border-2 rounded-md border-gray-500 rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-white">Starter</h3>
+                        <p class="mt-4 text-gray-400">Perfect for small businesses and startups.</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-white">Rs.300</span>
+                        <span class="text-xl font-medium text-gray-400">/mo</span>
+                    </div>
+                    <ul class="mb-8 space-y-4 text-gray-400">
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>5 user accounts</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>100 transactions per month</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Standard support</span>
+                        </li>
+                    </ul>
+                    <form action="/checkout" method="POST">
+                        <input type="hidden" name="productName" value="standerd">
+                        <input type="hidden" name="productPrice" value="300">
+                        <button type="submit" class="block w-full py-3 px-6 text-center rounded-md text-white font-medium bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600">
+                            Get Started
+                        </button>
+                    </form>    
+                </div>
+
+                <!-- Pro Plan -->
+                <div
+                    class="bg-zinc-850 border-2 rounded-md border-gray-500 rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-white">Pro</h3>
+                        <p class="mt-4 text-gray-400">Ideal for growing businesses and enterprises.</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-white">Rs.700</span>
+                        <span class="text-xl font-medium text-gray-400">/mo</span>
+                    </div>
+                    <ul class="mb-8 space-y-4 text-gray-400">
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Unlimited user accounts</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Unlimited transactions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Advanced analytics</span>
+                        </li>
+                    </ul>
+                      <form action="/checkout" method="POST">
+                        <input type="hidden" name="productName" value="pro">
+                        <input type="hidden" name="productPrice" value="700">
+                        <button type="submit" class="block w-full py-3 px-6 text-center rounded-md text-white font-medium bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600">
+                            Get Started
+                        </button>
+                    </form>     
+                </div>
+
+
+                <div
+                    class="bg-zinc-850 border-2 rounded-md border-gray-500 shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-white">Enterprise</h3>
+                        <p class="mt-4 text-gray-400">Tailored for large-scale deployments and custom needs.</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-white">Rs.1000</span>
+                    </div>
+                    <ul class="mb-8 space-y-4 text-gray-400">
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Dedicated infrastructure</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Custom integrations</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Dedicated support team</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Premium SLAs</span>
+                        </li>
+                    </ul>
+                      <form action="/checkout" method="POST">
+                        <input type="hidden" name="productName" value="Enterprise">
+                        <input type="hidden" name="productPrice" value="1000">
+                        <button type="submit"
+                            class="block w-full py-3 px-6 text-center rounded-md text-white font-medium bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600">
+                            Get Started
+                        </button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
